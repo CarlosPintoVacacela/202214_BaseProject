@@ -1,0 +1,841 @@
+{
+	"info": {
+		"_postman_id": "3d05349d-05ab-4737-9cd6-bc886d34d972",
+		"name": "Clubs-Socios",
+		"description": "Buy or rent spacecrafts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5655214"
+	},
+	"item": [
+		{
+			"name": "Crear un club válido 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"clubId\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un club válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120002\"\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un socio válido 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"memberId\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\":\"Andres\",\r\n    \"correo\":\"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\":\"1993-11-11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un socio válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreUsuario\":\"Andres\",\r\n    \"correo\":\"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\":\"1993-11-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombreUsuario\": \"Andres\",\r\n    \"correo\": \"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\": \"1993-11-11\",\r\n    \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un socio válido 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"memberId_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\":\"Andres\",\r\n    \"correo\":\"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\":\"1993-11-11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un socio válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreUsuario\":\"Andres\",\r\n    \"correo\":\"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\":\"1993-11-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombreUsuario\": \"Andres\",\r\n    \"correo\": \"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\": \"1993-11-11\",\r\n    \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un socio a un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"{{memberId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un socio a un club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"47a8fffd-6c19-4b20-89f8-faf720dc1e5e\",\r\n        \"nombre\": \"Quito Tennis Club\",\r\n        \"fechaFundacion\": \"2020-05-10\",\r\n        \"imagen\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"descripcion\": \"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\",\r\n        \"socios\": [\r\n            {\r\n                \"nombreUsuario\": \"Andres\",\r\n                \"correo\": \"c.pintov@uniandes.edu.co\",\r\n                \"fechaNacimiento\": \"1993-11-11\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n            }\r\n        ]\r\n    }"
+				}
+			]
+		},
+		{
+			"name": "Asociar un socio que no existe a un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El socio con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un socio que no existe a un club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El socio con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los socios de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los socios de un club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"nombreUsuario\": \"Andres\",\r\n        \"correo\": \"c.pintov@uniandes.edu.co\",\r\n        \"fechaNacimiento\": \"1993-11-11\",\r\n        \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un socio que pertenece a un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"{{memberId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un socio que pertenece a un club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombreUsuario\": \"Andres\",\r\n    \"correo\": \"c.pintov@uniandes.edu.co\",\r\n    \"fechaNacimiento\": \"1993-11-11\",\r\n    \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un socio que no es parte un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El socio con el id especificado no esta asociada con el club\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"{{memberId_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un socio que no es parte un club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"{{memberId_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"El socio con el id especificado no esta asociada con el club\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los socios que pertenecen a un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{memberId_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los socios que pertenecen a un club",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{memberId_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"47a8fffd-6c19-4b20-89f8-faf720dc1e5e\",\r\n        \"nombre\": \"Quito Tennis Club\",\r\n        \"fechaFundacion\": \"2020-05-10\",\r\n        \"imagen\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"descripcion\": \"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\",\r\n        \"socios\": [\r\n            {\r\n                \"nombreUsuario\": \"David\",\r\n                \"correo\": \"david@gmail.com\",\r\n                \"fechaNacimiento\": \"1995-04-10\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n            }\r\n        ]\r\n    }"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los socios de un club, con un socio inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El socio con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los socios de un club, con un socio inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El socio con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un socio que es parte de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"{{memberId_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un socio que es parte de un club",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"{{memberId_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un socio que no es parte de un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El socio con el id especificado no esta asociada con el club\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{clubId}}",
+						"members",
+						"{{memberId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un socio que no es parte de un club",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{clubId}}/members/{{memberId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{clubId}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"El socio con el id especificado no esta asociada con el club\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

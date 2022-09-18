@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "a9645f97-15ac-40b6-b7be-44519e2ab605",
+		"name": "Clubs",
+		"description": "Buy or rent spacecrafts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5655214"
+	},
+	"item": [
+		{
+			"name": "Crear un club válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"club_Id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un club válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"48a9ab90-1276-11ed-861d-0242ac120002\"\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un club inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"   pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message.length).to.greaterThan(0)\r",
+							"   pm.expect(data.error).to.eql(\"Bad Request\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"Hola\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un club inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"Hola\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 400,\r\n    \"message\": [\r\n        \"fechaFundacion must be a valid ISO 8601 date string\",\r\n        \"descripcion must be shorter than or equal to 100 characters\"\r\n    ],\r\n    \"error\": \"Bad Request\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los clubs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of clubs > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los clubs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"47a8fffd-6c19-4b20-89f8-faf720dc1e5e\",\r\n        \"nombre\": \"Quito Tennis Club\",\r\n        \"fechaFundacion\": \"2020-05-10\",\r\n        \"imagen\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"descripcion\": \"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\",\r\n        \"socios\": [\r\n            {\r\n                \"nombreUsuario\": \"Andres\",\r\n                \"correo\": \"c.pintov@uniandes.edu.co\",\r\n                \"fechaNacimiento\": \"1993-11-11\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n            },\r\n            {\r\n                \"nombreUsuario\": \"David\",\r\n                \"correo\": \"david@gmail.com\",\r\n                \"fechaNacimiento\": \"1995-04-10\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377348\"\r\n            }\r\n        ]\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un club por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club_Id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un club por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_Id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"47a8fffd-6c19-4b20-89f8-faf720dc1e5e\",\r\n        \"nombre\": \"Quito Tennis Club\",\r\n        \"fechaFundacion\": \"2020-05-10\",\r\n        \"imagen\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n        \"descripcion\": \"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo.\",\r\n        \"socios\": [\r\n            {\r\n                \"nombreUsuario\": \"Andres\",\r\n                \"correo\": \"c.pintov@uniandes.edu.co\",\r\n                \"fechaNacimiento\": \"1993-11-11\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377337\"\r\n            },\r\n            {\r\n                \"nombreUsuario\": \"David\",\r\n                \"correo\": \"david@gmail.com\",\r\n                \"fechaNacimiento\": \"1995-04-10\",\r\n                \"id\": \"23d77f32-5638-4764-a8c5-a94b1d377348\"\r\n            }\r\n        ]\r\n    }"
+				}
+			]
+		},
+		{
+			"name": "Obtener un club por un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El club con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un club por un ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El club con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo. Ven a divertirte.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club_Id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un club",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo. Ven a divertirte.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_Id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombre\": \"Quito Tennis Club\",\r\n    \"fechaFundacion\": \"2020-05-10\",\r\n    \"imagen\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\": \"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo. Ven a divertirte.\",\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un club con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El club con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo. Ven a divertirte.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un club con un ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Quito Tennis Club\",\r\n    \"fechaFundacion\":\"2020-05-10\",\r\n    \"imagen\":\"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\r\n    \"descripcion\":\"El club mas ostentoso de Quito, para todos los amantes de deportes y el descanzo. Ven a divertirte.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El club con el id especificado no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un club por su ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"{{club_Id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un club por su ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/{{club_Id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_Id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un club con un ID que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El club con el id especificado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"clubs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un club con un ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clubs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clubs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El club con el id especificado no existe\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
