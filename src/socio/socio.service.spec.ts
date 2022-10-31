@@ -55,10 +55,6 @@ describe('SocioService', () => {
   
   });
 
-  it('findOne should throw an exception for an invalid socio', async () => {
-    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "El socio con el id especificado no existe")
-  });
-
 
   it('create should return a new socio', async () => {
     const socio: SocioEntity = {
