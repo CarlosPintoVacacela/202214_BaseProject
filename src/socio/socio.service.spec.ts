@@ -38,7 +38,7 @@ describe('SocioService', () => {
     expect(service).toBeDefined();
   });
 
-  it('findAll should return all socios', async () => {
+  it('findAll should return all socios !', async () => {
     const socios: SocioEntity[] = await service.findAll();
     expect(socios).not.toBeNull();
     expect(socios).toHaveLength(socioList.length);
